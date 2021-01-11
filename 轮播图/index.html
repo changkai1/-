@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="swiper-container">
+        <div class="swiper-wrapper" id="banner-img">
+        	
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+	</body>
+	<script>
+		var mySwiper = new Swiper('.swiper-container', {
+        autoplay: true,//可选选项，自动滑动
+        speed:200,
+        pagination: {
+            el:".swiper-pagination"
+        }
+    })
+    mySwiper.on('slideChangeTransitionEnd',()=>{
+       $( aList[mySwiper.activeIndex]).addClass("active").siblings().removeClass();
+
+    });
+    Array.from(aList).forEach((item,index)=>{
+    	$(item).mouseover(()=>{
+    		mySwiper.slideTo(index);
+    		mySwiper.autoplay.start();
+    	})
+    	
+    })
+	</script>
+</html>

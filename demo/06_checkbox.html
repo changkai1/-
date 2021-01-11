@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    <input type="checkbox" checked id="ticket"> 纸质票
+</body>
+</html>
+<script>
+    $("#ticket").click(function() {
+        var _check = $("#ticket").prop('checked')
+        console.log(_check)
+    })
+</script>

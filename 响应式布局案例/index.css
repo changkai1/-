@@ -1,0 +1,112 @@
+body,p,ul,li,h3{margin:0;padding:0;}
+   li{list-style:none;}
+   a{text-decoration: none;}
+   img{display:block;}
+
+   header{
+    height:50px;
+    background:rgba(0,0,0,0.5);
+    display:flex;
+    justify-content: space-between; 
+    align-items: center;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+   }
+   header img{
+     width:150px;
+     height: 50px;
+   }
+   header span{
+     margin-left:30px;
+     color:#fff;
+   }
+   header a{
+     color:#fff;
+     margin-right:20px;
+   }
+   header ul{
+     display:flex;
+     display:none;
+   }
+
+   .banner{
+     width:100%;
+     height:250px;
+     background:url(images/top-bg.png) no-repeat center 0;
+     background-size:cover;
+   }
+
+   .picBox{
+     border:1px solid red;
+     padding:10px;
+   }
+   .picBox .top img{
+     width:100%;
+   }
+   .picBox .bottom .left img,.picBox .bottom .right img{
+     width:100%;
+   }
+   .picBox .bottom{
+     margin-top:5px;
+     display:flex;
+   }
+   .picBox .left,.picBox .right{
+     width:50%;
+   }
+   .picBox .left{
+     margin-right:5px;
+   }
+   .list{
+     padding:15px;
+   }
+   .list li{
+     /* background:skyblue; */
+     padding:5px;
+     margin-bottom:10px;
+     border:1px solid skyblue;
+   }
+   .list li img{
+     width:100%;
+   }
+   @media only screen and (min-width:450px){
+     .list{
+       display:flex;
+       flex-wrap:wrap;
+       box-sizing:border-box;
+       justify-content: space-around;
+     }
+     .list li{
+       box-sizing:border-box;
+       width:49%;
+     }
+   }
+   @media only screen and (min-width:770px){
+     header span{
+       display:none;
+     }
+     header img{
+       margin-left:30px;
+     }
+     header ul{
+       display:flex;
+     }
+     .picBox{
+       display:flex;
+     }
+     .picBox .bottom{
+       margin-top:0px;
+       margin-left:18px;
+      }
+     .list li{
+      width:32%;
+      box-sizing:border-box;
+     }
+   }
+   @media only screen and (min-width:1030px){
+    .list li{
+      width:24%;
+      box-sizing:border-box;
+     }
+   }

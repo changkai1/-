@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 复制功能
+    handleCopy (index, rowData) {
+        let oInput = document.createElement('input');
+        if (index === '1') {
+            oInput.value = rowData.ftp.ftp_host;
+        } else if (index === '2') {
+            oInput.value = rowData.ftp.ftp_username;
+        } else if (index === '3') {
+            oInput.value = rowData.ftp.ftp_password;
+        } else if (index === '4') {
+            oInput.value = this.uploadPath;
+        }
+        document.body.appendChild(oInput);
+        oInput.select();
+        document.execCommand('Copy');
+        this.$Message.destroy();
+        this.$Message.success({
+            content: this.$t('business_copy_success'),
+            duration: 2
+        });
+        oInput.remove();
+    }
+</script>

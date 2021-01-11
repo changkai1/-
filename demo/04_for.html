@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let arr = [
+    {
+        orgId: "2654",
+        orgName: "主办沪文文化",
+        shareProportion: '12'
+    },
+    {
+        orgId: "2654",
+        orgName: "主办沪文文化",
+        shareProportion: '12121212'
+    },
+    {
+        orgId: "2654",
+        orgName: "主办沪文文化",
+        shareProportion: '12.112122'
+    },
+    {
+        orgId: "2654",
+        orgName: "主办沪文文化",
+        shareProportion: '10.12'
+    },
+    {
+        orgId: "2654",
+        orgName: "主办沪文文化",
+        shareProportion: '12'
+    }
+]
+let lock = true;
+if (arr.length > 0) {
+    for (let i = 0 ; i < arr.length; i++) {
+        if (arr[i].shareProportion == 'null' || arr[i].shareProportion == '') {
+            lock = false;
+        } else if (arr[i].shareProportion >= 100 || arr[i].shareProportion < 0) {
+            lock = false;
+        } else {
+            var reg = /^\d+(\.\d{1,2})?$/;
+            if (!reg.test(arr[i].shareProportion)) {
+                lock = false;
+            }
+        }
+    }
+}
+
+if (arr.length > 0 && lock){
+    console.log(12345)
+} else if (!lock) {
+    console.log('请输入分成比例')
+} else {
+    console.log('请选择主办')
+}
+
+let brr =[{
+    0: "分组",
+    1: "等级",
+    2: "A级",
+    3: "B级",
+    4: "C级",
+    5: "D级",
+    6: "E级",
+    7: "F级",
+    8: "G级",
+    9: "H级",
+    10: "J级",
+    11: "K级",
+    12: "M级",
+    13: "N级",
+    14: "合计"
+}]
+console.log(brr[0][0])
+</script>

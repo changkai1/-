@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-2.1.1.min.js"></script>
+</head>
+<body>
+    小写<input type="text" id="txt">
+    大写<p id="p"></p>
+</body>
+</html>
+<script>
+    $("#txt").blur(function() {
+        var num = $("#txt").val()
+        $("#p").html(priceChange(num))
+    })
+    function priceChange(number) {
+        var ret = "";
+        if (number != "" && number != null && number != "0") {
+            var unit = "仟佰拾亿仟佰拾万仟佰拾元角分",
+            str = "";
+            number += "00";
+            var point = number.indexOf(".");
+            if (point >= 0) {
+            number = number.substring(0, point) + number.substr(point + 1, 2);
+            }
+            unit = unit.substr(unit.length - number.length);
+            for (var i = 0; i < number.length; i++) {
+            str +=
+                "零壹贰叁肆伍陆柒捌玖".charAt(number.charAt(i)) + unit.charAt(i);
+            }
+            ret =
+            str
+                .replace(/零(仟|佰|拾|角)/g, "零")
+                .replace(/(零)+/g, "零")
+                .replace(/零(万|亿|元)/g, "$1")
+                .replace(/(亿)万|(拾)/g, "$1$2")
+                .replace(/^元零?|零分/g, "")
+                .replace(/元$/g, "元") + "整";
+        }
+        return ret;
+    }
+    function dateFormat (time, fmt = 'YYYY-MM-dd') {
+        const date = new Date(time)
+        const o = {
+            'M+': date.getMonth() + 1,
+            'd+': date.getDate(),
+            'h+': date.getHours(),
+            'm+': date.getMinutes(),
+            's+': date.getSeconds(),
+            'q+': Math.floor((date.getMonth() + 3) / 3),
+            'S"': date.getMilliseconds()
+        }
+        if (/(y+)/i.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+        }
+        for (let k in o) {
+            if (new RegExp('(' + k + ')').test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+            }
+        }
+        return fmt
+    }
+</script>
